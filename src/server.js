@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import flaggedMessagesRoute from "./routes/flaggedMessages.route.js";
 import censoredWordsRoute from "./routes/censoredWords.route.js";
+import messagesRoute from "./routes/messages.route.js";
 import MonitorSys from "./providers/monitoringSys.js";
 dotenv.config();
 
@@ -13,6 +14,7 @@ server.use(cors());
 server.use(express.json());
 
 server.use("/flaggedMessages", flaggedMessagesRoute);
+server.use("/messages", messagesRoute);
 server.use("/censoredWords", censoredWordsRoute);
 
 server.all("/", (req, res) => {
